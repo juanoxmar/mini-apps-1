@@ -2,11 +2,20 @@ const body = document.body;
 const app = document.createElement('div');
 app.className = 'app';
 body.appendChild(app);
+const player1 = prompt('Player One (X) enter your name:');
+const player2 = prompt('Player Two (O) enter your name:');
+
+const p1 = document.getElementById('player1');
+p1.innerHTML = `${player1} win count: `;
+const p2 = document.getElementById('player2');
+p2.innerHTML = `${player2} win count: `;
 
 function gameControl() {
   let xTurn = true;
   let gameInProgress = true;
   let turnCount = 0;
+  let xWins = 0;
+  let oWins = 0;
   let game = Array.from(Array(3), () => new Array(3).fill(null));
   gameBoard();
 
@@ -31,13 +40,22 @@ function gameControl() {
       const marker = xTurn ? 'X' : 'O';
       e.target.innerHTML = marker;
       game[row][col] = marker;
-      console.log(game);
       if (solutionCheck(game)) {
+        if (marker === 'X') {
+          const span = document.getElementById('xWins');
+          xWins++;
+          span.innerHTML = xWins;
+        } else {
+          const span = document.getElementById('oWins');
+          oWins++;
+          span.innerHTML = oWins;
+        }
         const div = document.createElement('div');
         div.className = 'announce';
         div.innerHTML = `${marker} wins!`;
         app.appendChild(div);
         gameInProgress = false;
+        xTurn = !xTurn;
       } else if (turnCount === 9) {
         const div = document.createElement('div');
         div.className = 'announce';
@@ -73,7 +91,6 @@ function gameControl() {
     }
     gameBoard();
     newBoard();
-    xTurn = true;
     gameInProgress = true;
     turnCount = 0;
   }
