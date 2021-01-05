@@ -1,0 +1,72 @@
+* {
+  font-family: 'Rubik', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Ubuntu, 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --polar1: #2E3440;
+  --polar2: #3B4252;
+  --polar3: #434C5E;
+  --polar4: #4C566A;
+  --snow1: #D8DEE9;
+  --snow2: #E5E9F0;
+  --snow3: #ECEFF4;
+  --frost1: #8FBCBB;
+  --frost2: #88C0D0;
+  --frost3: #81A1C1;
+  --frost4: #5E81AC;
+  --aurora1: #BF616A;
+  --aurora2: #D08770;
+  --aurora3: #EBCB8B;
+  --aurora4: #A3BE8C;
+  --aurora5: #B48EAD;
+}
+
+.app {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.names {
+  margin: 10px;
+}
+
+.square {
+  height: 100px;
+  line-height: 100px;
+  border: 5px solid var(--aurora5);
+  color: var(--aurora3);
+  flex: 1 0 30%;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.announce {
+  margin-top: 10px;
+  height: 100px;
+  flex: 1 0 30%;
+}
+
+body {
+  background: var(--polar1);
+  color: var(--aurora2);
+}
+
+button {
+  margin: 10px;
+  padding: 5px;
+  outline: none;
+  border: 1px solid var(--snow1);
+  border-radius: 5px;
+  background: none;
+  color: var(--snow1);
+}
+
+button:hover {
+  cursor: pointer;
+  color: var(--frost1);
+  border-color: var(--frost1);
+
+}
